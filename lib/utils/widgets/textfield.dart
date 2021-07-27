@@ -169,7 +169,7 @@ class _AppTextFieldState extends State<AppTextField> {
                     borderRadius: BorderRadius.circular(0)
                 ),
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    borderSide: BorderSide(color: Colors.grey[400], width: 1.0),
                     borderRadius: BorderRadius.circular(0)
                 ),
                 errorBorder: OutlineInputBorder(
@@ -245,7 +245,7 @@ class _AppTextFieldState extends State<AppTextField> {
                         borderRadius: BorderRadius.circular(0)
                     ),
                     enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                        borderSide: BorderSide(color: Colors.grey[400], width: 1.0),
                         borderRadius: BorderRadius.circular(0)
                     ),
                     errorBorder: OutlineInputBorder(

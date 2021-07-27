@@ -22,6 +22,11 @@ abstract class TextStyles {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle get pageHeading => TextStyle(
+    fontSize: SizeConfig.textMultiplier * 3,
+    fontWeight: FontWeight.w600,
+  );
+
   static TextStyle get subTitle => TextStyle(
         fontSize: SizeConfig.textMultiplier * 1.8,
     color: Colors.grey[600]
@@ -107,4 +112,7 @@ abstract class TextStyles {
 
   static TextStyle xlargeTextMedium([Color fontColor = Colors.black]) =>
       TextStyle(fontSize: 32.0, color: fontColor, fontWeight: FontWeight.w500);
+
+  static TextStyle xlargeTextSemiBold([Color fontColor = Colors.black]) =>
+      TextStyle(fontSize: 32.0, color: fontColor, fontWeight: FontWeight.w600);
 }

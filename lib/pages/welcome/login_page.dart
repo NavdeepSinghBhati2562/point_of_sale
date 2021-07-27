@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:point_of_sale/constant/constants.dart';
+import 'package:point_of_sale/utils/Routes/routes.dart';
 import 'package:point_of_sale/utils/size_config.dart';
 import 'package:point_of_sale/utils/styles/text.dart';
 import 'package:point_of_sale/utils/widgets/app_button.dart';
@@ -52,6 +53,9 @@ class _LoginPageState extends State<LoginPage> {
             AppButton(
               text: 'SIGN IN',
               isFullWidth: true,
+              onPressed: (){
+                Navigator.push(context, Routes.language());
+              },
             ),
             SizedBox(height: 20,),
             Container(

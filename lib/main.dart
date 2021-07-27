@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'Noto',
                   backgroundColor: Colors.white,
                   scaffoldBackgroundColor: Colors.white,
+                dividerColor: borderGrey
               ),
               home: LoginPage(),
               title: 'Hallo',
