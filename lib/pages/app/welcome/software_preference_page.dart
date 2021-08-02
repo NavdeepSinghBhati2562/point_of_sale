@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:point_of_sale/utils/Routes/routes.dart';
+import 'package:point_of_sale/utils/app_localiszation.dart';
 import 'package:point_of_sale/utils/size_config.dart';
 import 'package:point_of_sale/utils/styles/text.dart';
 import 'package:point_of_sale/utils/widgets/app_button.dart';
@@ -17,7 +18,7 @@ class _SoftwarePreferencePageState extends State<SoftwarePreferencePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        title: 'Back',
+        title: AppLocalizations.of(context).translate('back'),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),

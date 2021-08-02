@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:point_of_sale/constant/constants.dart';
-import 'package:point_of_sale/pages/welcome/price_plan/plan_banner.dart';
+import 'package:point_of_sale/utils/app_localiszation.dart';
 import 'package:point_of_sale/utils/size_config.dart';
 import 'package:point_of_sale/utils/styles/text.dart';
 import 'package:point_of_sale/utils/widgets/my_app_bar.dart';
-
+import 'plan_banner.dart';
 class PricePlanPage extends StatefulWidget {
   @override
   _PricePlanPageState createState() => _PricePlanPageState();
@@ -118,7 +118,7 @@ class _PricePlanPageState extends State<PricePlanPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        title: 'Back',
+        title: AppLocalizations.of(context).translate('back'),
       ),
       body: Container(
         height: SizeConfig.getScreenHeight(context),

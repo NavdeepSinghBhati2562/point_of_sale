@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:point_of_sale/utils/Routes/routes.dart';
+import 'package:point_of_sale/utils/app_localiszation.dart';
 import 'package:point_of_sale/utils/size_config.dart';
 import 'package:point_of_sale/utils/styles/text.dart';
 import 'package:point_of_sale/utils/widgets/app_button.dart';
 import 'package:point_of_sale/utils/widgets/my_app_bar.dart';
 import 'package:point_of_sale/utils/widgets/textfield.dart';
 
-class CompanyDetailPage extends StatefulWidget {
+class ContactDetailPage extends StatefulWidget {
   @override
-  _CompanyDetailPageState createState() => _CompanyDetailPageState();
+  _ContactDetailPageState createState() => _ContactDetailPageState();
 }
 
-class _CompanyDetailPageState extends State<CompanyDetailPage> {
+class _ContactDetailPageState extends State<ContactDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: MyAppBar(
-        title: 'Back',
+        title: AppLocalizations.of(context).translate('back'),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),
@@ -27,49 +28,45 @@ class _CompanyDetailPageState extends State<CompanyDetailPage> {
           children: [
             Column(
               children: [
-                Text('Enter your Company details',style: TextStyles.pageHeading,),
+                Text(AppLocalizations.of(context).translate('enterYourContactDetails'),style: TextStyles.pageHeading,),
                 SizedBox(height: 30,),
                 Column(
                   children: [
                     AppTextField(
                       defaultValidators: [],
-                      placeholder: 'COMPANY NAME',
+                      placeholder: AppLocalizations.of(context).translate('firstName'),
                     ),
                     SizedBox(height: 20,),
                     AppTextField(
                       defaultValidators: [],
-                      placeholder: 'ADDRESS LINE 1',
+                      placeholder: AppLocalizations.of(context).translate('lastName'),
                     ),
                     SizedBox(height: 20,),
                     AppTextField(
                       defaultValidators: [],
-                      placeholder: 'ADDRESS LINE 2',
+                      placeholder: AppLocalizations.of(context).translate('email'),
                     ),
                     SizedBox(height: 20,),
                     AppTextField(
                       defaultValidators: [],
-                      placeholder: 'POST CODE',
+                      placeholder: AppLocalizations.of(context).translate('phone'),
                     ),
                     SizedBox(height: 20,),
                     AppTextField(
                       defaultValidators: [],
-                      placeholder: 'Reg. Code',
-                    ),
-                    SizedBox(height: 20,),
-                    AppTextField(
-                      defaultValidators: [],
-                      placeholder: 'VAT NUMBER',
+                      placeholder: AppLocalizations.of(context).translate('role'),
                     ),
                     SizedBox(height: 20,),
                   ],
                 ),
+
               ],
             ),
             AppButton(
-              text: 'NEXT',
+              text: AppLocalizations.of(context).translate('next'),
               isFullWidth: true,
               onPressed: (){
-                Navigator.push(context, Routes.contactDetail());
+                Navigator.push(context, Routes.companySize());
               },
             )
           ],

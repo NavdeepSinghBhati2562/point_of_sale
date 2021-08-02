@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:point_of_sale/constant/constants.dart';
+import 'package:point_of_sale/provider/langProvider.dart';
 import 'package:point_of_sale/utils/Routes/routes.dart';
+import 'package:point_of_sale/utils/app_localiszation.dart';
 import 'package:point_of_sale/utils/size_config.dart';
 import 'package:point_of_sale/utils/widgets/app_button.dart';
-
+import 'package:provider/provider.dart';
 class LanguagePage extends StatefulWidget {
   @override
   _LanguagePageState createState() => _LanguagePageState();
 }
 
 class _LanguagePageState extends State<LanguagePage> {
+
+  List<String> _languages = [
+    'Deutsche',
+    'Eesti',
+    'English',
+    'Espanola',
+    'Francias'
+  ];
+
+  String _selectedLang = 'English';
+
   @override
   Widget build(BuildContext context) {
+    var appLanguage = Provider.of<AppLanguage>(context);
     return Scaffold(
       body: Column(
         children: [
@@ -24,9 +38,9 @@ class _LanguagePageState extends State<LanguagePage> {
               children: [
                 Image.asset('assets/icons/pos.png'),
                 SizedBox(height: 10,),
-                Text('Point of Sale',style: TextStyle(fontSize: SizeConfig.textMultiplier * 4.4,fontWeight: FontWeight.w600,color: textColor),),
+                Text(AppLocalizations.of(context).translate('pointOfSale'),style: TextStyle(fontSize: SizeConfig.textMultiplier * 4.4,fontWeight: FontWeight.w600,color: textColor),),
                 SizedBox(height: 20,),
-                Text('Create your account and start operating your business with future tools!',textAlign: TextAlign.center,style: TextStyle(fontSize: SizeConfig.textMultiplier * 3),),
+                Text(AppLocalizations.of(context).translate('createYourAccount...'),textAlign: TextAlign.center,style: TextStyle(fontSize: SizeConfig.textMultiplier * 3),),
                 SizedBox(height: 20,),
                 Container(
                   decoration: BoxDecoration(
@@ -34,22 +48,32 @@ class _LanguagePageState extends State<LanguagePage> {
                   ),
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   width: SizeConfig.getScreenWidth(context),
-                  child: DropdownButton(
+                  child: DropdownButton<String>(
+                    value: _selectedLang,
                     underline: SizedBox(),
                     isExpanded: true,
-                    icon: Icon(Icons.language),
-                    hint: Text('English'),
-                    onChanged: (val){
+                    items: _languages.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: new Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (val) {
+                      setState(() {
+                        _selectedLang = val;
 
+                      });
                     },
-                    items: List.generate(10, (index){
-                      return DropdownMenuItem(child: Text('English $index'));
-                    }),
                   ),
                 ),
                 SizedBox(height: 20,),
                 AppButton(text: 'GET STARTED', onPressed: (){
                   Navigator.push(context, Routes.businessLocation());
+                  if(_selectedLang =='Eesti'){
+                    appLanguage.changeLanguage(Locale("et"));
+                  }else if(_selectedLang =='English'){
+                    appLanguage.changeLanguage(Locale("en"));
+                  }
                 },isFullWidth: true,),
                 SizedBox(height: 30,),
 

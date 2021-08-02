@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:point_of_sale/utils/Routes/routes.dart';
+import 'package:point_of_sale/utils/app_localiszation.dart';
 import 'package:point_of_sale/utils/size_config.dart';
 import 'package:point_of_sale/utils/styles/text.dart';
 import 'package:point_of_sale/utils/widgets/app_button.dart';
@@ -68,7 +69,7 @@ class _DevicePreferencePageState extends State<DevicePreferencePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        title: 'Back',
+        title: AppLocalizations.of(context).translate('back'),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),
@@ -88,13 +89,29 @@ class _DevicePreferencePageState extends State<DevicePreferencePage> {
                     ListTile(
                       contentPadding: const EdgeInsets.symmetric(vertical: 12.5),
                       title: Text('I want to use mobile and Tablet devices',style: TextStyles.heading1,),
-                      trailing: Switch(
-                        value: _showTabletHardware,
-                        onChanged: (val){
+                      trailing: GestureDetector(
+                        onTap: (){
                           setState(() {
-                            _showTabletHardware = val;
+                            _showTabletHardware = !_showTabletHardware;
                           });
                         },
+                        child: Container(
+                          height: 28,
+                          width: 28,
+                          color: _showTabletHardware ? Theme.of(context).primaryColor : Colors.grey[400],
+                          child: Row(
+                            mainAxisAlignment: _showTabletHardware ? MainAxisAlignment.end : MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 28,
+                                width: 4,
+                                alignment: Alignment.centerRight,
+                                margin: const EdgeInsets.only(top: 2,bottom: 2,left: 2,right: 2),
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                     _showTabletHardware ? _buildSelectTabletHardware() : SizedBox()

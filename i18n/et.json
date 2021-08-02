@@ -1,0 +1,26 @@
+{
+  "pointOfSale": "Müügipunkt",
+  "signIn" : "LOGI SISSE",
+  "createFreeAccount" : "Loo tasuta konto",
+  "loginMethod": "LOGIN MEETOD",
+  "clientCode": "KLIENDIKOOD",
+  "email": "EMAIL",
+  "password": "PAROOL",
+  "rememberMe": "MÄLETA MIND",
+  "createYourAccount...": "Looge oma konto ja hakake oma äri juhtima tulevaste tööriistadega!",
+  "whereIsYourBusiness": "Kus on teie äri?",
+  "next": "JÄRGMINE",
+  "enterYourCompanyDetails" : "Sisestage oma ettevõtte andmed",
+  "enterYourContactDetails" : "Sisestage oma kontaktandmed",
+  "companyName": "ETTEVÕTTE NIMI",
+  "addressLine" : "AADRESSI RIDA",
+  "postCode": "POSTIINDEKS",
+  "regCode": "Reg. Kood",
+  "vatNumber": "KÄIBEMAKSUKOHUSTUSLASE NUMBER",
+  "firstName" : "EESNIMI",
+  "lastName" : "PEREKONNANIMI",
+  "phone": "TELEFON",
+  "role": "ROLL",
+  "back": "tagasi"
+
+}
