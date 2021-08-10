@@ -9,6 +9,8 @@ import 'package:point_of_sale/utils/widgets/my_app_bar.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:point_of_sale/utils/widgets/company_side_menu.dart';
+
 class BusinessLocationPage extends StatefulWidget {
   @override
   _BusinessLocationPageState createState() => _BusinessLocationPageState();
@@ -24,11 +26,12 @@ class _BusinessLocationPageState extends State<BusinessLocationPage> {
       appBar: MyAppBar(
         title: AppLocalizations.of(context).translate('back'),
       ),
-      body: Stack(
+      body: Row(
         children: [
+          SizeConfig.isTab ? CompanySideMenu() : SizedBox(),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),
-            width: SizeConfig.getScreenWidth(context),
+            padding: EdgeInsets.symmetric(horizontal: SizeConfig.isTab ? SizeConfig.getScreenWidth(context) * 0.1 :  30,vertical: 20),
+            width: SizeConfig.isTab ? SizeConfig.getScreenWidth(context) * 0.67 : SizeConfig.getScreenWidth(context),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

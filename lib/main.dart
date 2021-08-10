@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:point_of_sale/constant/constants.dart';
 import 'package:point_of_sale/pages/app/welcome/login_page.dart';
+import 'package:point_of_sale/pages/splash/splash_page.dart';
 import 'package:point_of_sale/provider/app_provider.dart';
 import 'package:point_of_sale/provider/langProvider.dart';
 import 'package:point_of_sale/utils/app_localiszation.dart';
@@ -65,8 +66,8 @@ class _MyAppState extends State<MyApp> {
                         scaffoldBackgroundColor: Colors.white,
                         dividerColor: borderGrey
                     ),
-                    home: TabHome(),
-                    title: 'Point of Sale',
+                    home: SplashPage(),
+                    title: 'ERPLY',
                   );
                 },
               );

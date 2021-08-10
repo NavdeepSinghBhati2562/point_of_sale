@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:point_of_sale/pages/splash/splash_page.dart';
 import 'package:point_of_sale/pages/app/welcome/business_location_page.dart';
@@ -11,35 +12,38 @@ import 'package:point_of_sale/pages/app/welcome/language_page.dart';
 import 'package:point_of_sale/pages/app/welcome/login_page.dart';
 import 'package:point_of_sale/pages/app/welcome/price_plan/price_plan_page.dart';
 import 'package:point_of_sale/pages/app/welcome/software_preference_page.dart';
+import 'package:point_of_sale/pages/tab/tab_home.dart';
 
 class Routes {
-  static MaterialPageRoute _makeRoute(Widget page) =>
-      MaterialPageRoute(
+  static CupertinoPageRoute _makeRoute(Widget page) =>
+      CupertinoPageRoute(
         builder: (context) => page,
       );
-  static MaterialPageRoute splash() => _makeRoute(SplashPage());
+  static CupertinoPageRoute splash() => _makeRoute(SplashPage());
 
-  static MaterialPageRoute login() => _makeRoute(LoginPage());
+  static CupertinoPageRoute login() => _makeRoute(LoginPage());
 
-  static MaterialPageRoute language() => _makeRoute(LanguagePage());
+  static CupertinoPageRoute tabHome() => _makeRoute(TabHome());
 
-  static MaterialPageRoute businessLocation() => _makeRoute(BusinessLocationPage());
+  static CupertinoPageRoute language() => _makeRoute(LanguagePage());
 
-  static MaterialPageRoute companyDetails() => _makeRoute(CompanyDetailPage());
+  static CupertinoPageRoute businessLocation() => _makeRoute(BusinessLocationPage());
 
-  static MaterialPageRoute contactDetail() => _makeRoute(ContactDetailPage());
+  static CupertinoPageRoute companyDetails() => _makeRoute(CompanyDetailPage());
 
-  static MaterialPageRoute softwarePreference() => _makeRoute(SoftwarePreferencePage());
+  static CupertinoPageRoute contactDetail() => _makeRoute(ContactDetailPage());
 
-  static MaterialPageRoute devicePreference() => _makeRoute(DevicePreferencePage());
+  static CupertinoPageRoute softwarePreference() => _makeRoute(SoftwarePreferencePage());
 
-  static MaterialPageRoute pricePlan() => _makeRoute(PricePlanPage());
+  static CupertinoPageRoute devicePreference() => _makeRoute(DevicePreferencePage());
 
-  static MaterialPageRoute createAccount() => _makeRoute(CreateAccountPage());
+  static CupertinoPageRoute pricePlan() => _makeRoute(PricePlanPage());
 
-  static MaterialPageRoute confirmInfo() => _makeRoute(ConfirmInfoPage());
+  static CupertinoPageRoute createAccount() => _makeRoute(CreateAccountPage());
 
-  static MaterialPageRoute companySize() => _makeRoute(CompanySizePage());
+  static CupertinoPageRoute confirmInfo() => _makeRoute(ConfirmInfoPage());
+
+  static CupertinoPageRoute companySize() => _makeRoute(CompanySizePage());
 
 
 }

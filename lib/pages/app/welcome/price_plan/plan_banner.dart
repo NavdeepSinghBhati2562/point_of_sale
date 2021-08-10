@@ -68,15 +68,16 @@ class _PlanBannerState extends State<PlanBanner> with TickerProviderStateMixin {
                           padding: const EdgeInsets.only(top: 10),
                           child: Text('\$',style: TextStyles.pageHeading,),
                         ),
-                        Text('29',style: TextStyle(fontSize: SizeConfig.textMultiplier * 6,fontWeight: FontWeight.w600),)
+                        Text('29',style: TextStyle(fontSize: SizeConfig.textMultiplier * 5,fontWeight: FontWeight.w600),)
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),
-                      child: Text(' / Month',style: TextStyle(fontWeight: FontWeight.w500,fontSize: SizeConfig.textMultiplier * 2.6,color: Colors.grey),),
+                      child: Text(' / Month',style: TextStyle(fontWeight: FontWeight.w500,fontSize: SizeConfig.textMultiplier * 2.2,color: Colors.grey),),
                     ),
                   ],
                 ),
+                // SizedBox(width: 10,),
                 TextButton(
                     onPressed: (){
                       setState(() {
@@ -102,15 +103,18 @@ class _PlanBannerState extends State<PlanBanner> with TickerProviderStateMixin {
             _showDetail ? Column(
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: List.generate(_plansIncludes.length, (index) {
-                    return Container(
-                      padding: const EdgeInsets.symmetric(vertical: 2),
-                      child: Row(
-                        children: [
-                          Icon(Icons.check,color: Theme.of(context).primaryColor,),
-                          SizedBox(width: 5,),
-                          Text(_plansIncludes[index],style: TextStyles.heading1,)
-                        ],
+                    return FittedBox(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        child: Row(
+                          children: [
+                            Icon(Icons.check,color: Theme.of(context).primaryColor,),
+                            SizedBox(width: 5,),
+                            Text(_plansIncludes[index],style: TextStyles.heading1,overflow: TextOverflow.fade,)
+                          ],
+                        ),
                       ),
                     );
                   }),

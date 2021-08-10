@@ -6,6 +6,8 @@ import 'package:point_of_sale/utils/size_config.dart';
 import 'package:point_of_sale/utils/styles/text.dart';
 import 'package:point_of_sale/utils/widgets/my_app_bar.dart';
 import 'plan_banner.dart';
+import 'package:point_of_sale/utils/widgets/company_side_menu.dart';
+
 class PricePlanPage extends StatefulWidget {
   @override
   _PricePlanPageState createState() => _PricePlanPageState();
@@ -120,27 +122,32 @@ class _PricePlanPageState extends State<PricePlanPage> {
       appBar: MyAppBar(
         title: AppLocalizations.of(context).translate('back'),
       ),
-      body: Container(
-        height: SizeConfig.getScreenHeight(context),
-        width: SizeConfig.getScreenWidth(context),
-        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Text('Choose the price plan that matches your need',textAlign: TextAlign.center,style: TextStyles.pageHeading,),
-              SizedBox(height: 25,),
-              _buildAnnualPlan(),
-              SizedBox(height: 16,),
-              _buildMonthlyPlan(),
-              SizedBox(height: 25,),
-              Column(
-                children: List.generate(5, (index){
-                  return PlanBanner();
-                }),
-              )
-            ],
+      body: Row(
+        children: [
+          SizeConfig.isTab ? CompanySideMenu() : SizedBox(),
+          Container(
+            height: SizeConfig.getScreenHeight(context),
+            width: SizeConfig.isTab ? SizeConfig.getScreenWidth(context) * 0.67 : SizeConfig.getScreenWidth(context),
+            padding: EdgeInsets.symmetric(horizontal:  SizeConfig.isTab ? SizeConfig.getScreenWidth(context) * 0.05 :  10,vertical: 20),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text('Choose the price plan that matches your need',textAlign: TextAlign.center,style: TextStyles.pageHeading,),
+                  SizedBox(height: 25,),
+                  _buildAnnualPlan(),
+                  SizedBox(height: 16,),
+                  _buildMonthlyPlan(),
+                  SizedBox(height: 25,),
+                  Column(
+                    children: List.generate(5, (index){
+                      return PlanBanner();
+                    }),
+                  )
+                ],
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

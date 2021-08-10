@@ -6,6 +6,7 @@ import 'package:point_of_sale/utils/styles/text.dart';
 import 'package:point_of_sale/utils/widgets/app_button.dart';
 import 'package:point_of_sale/utils/widgets/my_app_bar.dart';
 import 'package:point_of_sale/utils/widgets/textfield.dart';
+import 'package:point_of_sale/utils/widgets/company_side_menu.dart';
 
 class CompanySizePage extends StatefulWidget {
   @override
@@ -20,52 +21,57 @@ class _CompanySizePageState extends State<CompanySizePage> {
       appBar: MyAppBar(
         title: AppLocalizations.of(context).translate('back'),
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),
-        width: SizeConfig.getScreenWidth(context),
-        child:Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
+      body: Row(
+        children: [
+          SizeConfig.isTab ? CompanySideMenu() : SizedBox(),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal:  SizeConfig.isTab ? SizeConfig.getScreenWidth(context) * 0.1 : 30,vertical: 20),
+            width: SizeConfig.isTab ? SizeConfig.getScreenWidth(context) * 0.67 : SizeConfig.getScreenWidth(context),
+            child:Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('How big is your company is?',style: TextStyles.pageHeading,),
-                SizedBox(height: 30,),
                 Column(
                   children: [
-                    AppTextField(
-                      defaultValidators: [],
-                      placeholder: 'NR OF LOCATION',
+                    Text('How big is your company is?',style: TextStyles.pageHeading,),
+                    SizedBox(height: 30,),
+                    Column(
+                      children: [
+                        AppTextField(
+                          defaultValidators: [],
+                          placeholder: 'NR OF LOCATION',
+                        ),
+                        SizedBox(height: 20,),
+                        AppTextField(
+                          defaultValidators: [],
+                          placeholder: 'NR OF CASH REGISTERS',
+                        ),
+                        SizedBox(height: 20,),
+                        AppTextField(
+                          defaultValidators: [],
+                          placeholder: 'NR OF SYSTEM USER',
+                        ),
+                        SizedBox(height: 20,),
+                        AppTextField(
+                          defaultValidators: [],
+                          placeholder: 'NR OF PRODUCTS',
+                        ),
+                        SizedBox(height: 20,),
+                      ],
                     ),
-                    SizedBox(height: 20,),
-                    AppTextField(
-                      defaultValidators: [],
-                      placeholder: 'NR OF CASH REGISTERS',
-                    ),
-                    SizedBox(height: 20,),
-                    AppTextField(
-                      defaultValidators: [],
-                      placeholder: 'NR OF SYSTEM USER',
-                    ),
-                    SizedBox(height: 20,),
-                    AppTextField(
-                      defaultValidators: [],
-                      placeholder: 'NR OF PRODUCTS',
-                    ),
-                    SizedBox(height: 20,),
+
                   ],
                 ),
-
+                AppButton(
+                  text: 'NEXT',
+                  isFullWidth: true,
+                  onPressed: (){
+                    Navigator.push(context, Routes.softwarePreference());
+                  },
+                )
               ],
             ),
-            AppButton(
-              text: 'NEXT',
-              isFullWidth: true,
-              onPressed: (){
-                Navigator.push(context, Routes.softwarePreference());
-              },
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

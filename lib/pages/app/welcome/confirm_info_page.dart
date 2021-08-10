@@ -4,6 +4,7 @@ import 'package:point_of_sale/utils/app_localiszation.dart';
 import 'package:point_of_sale/utils/size_config.dart';
 import 'package:point_of_sale/utils/styles/text.dart';
 import 'package:point_of_sale/utils/widgets/my_app_bar.dart';
+import 'package:point_of_sale/utils/widgets/company_side_menu.dart';
 
 class ConfirmInfoPage extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ class _ConfirmInfoPageState extends State<ConfirmInfoPage> {
           color: Color(0xFFF9F9F9)
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,6 +99,7 @@ class _ConfirmInfoPageState extends State<ConfirmInfoPage> {
           color: Color(0xFFF9F9F9)
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,6 +175,7 @@ class _ConfirmInfoPageState extends State<ConfirmInfoPage> {
           color: Color(0xFFF9F9F9)
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -244,24 +248,31 @@ class _ConfirmInfoPageState extends State<ConfirmInfoPage> {
       appBar: MyAppBar(
         title: AppLocalizations.of(context).translate('back'),
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
-        width: SizeConfig.getScreenWidth(context),
-        height: SizeConfig.getScreenHeight(context),
+      body: Row(
+        children: [
+          SizeConfig.isTab ? CompanySideMenu() : SizedBox(),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal:  SizeConfig.isTab ? SizeConfig.getScreenWidth(context) * 0.05 : 10,vertical: 20),
+              width: SizeConfig.isTab ? SizeConfig.getScreenWidth(context) * 0.67 : SizeConfig.getScreenWidth(context),
+            height: SizeConfig.getScreenHeight(context),
 
-        child:SingleChildScrollView(
-          child:  Column(
-            children: [
-              Text('Confirm your Information',style: TextStyles.pageHeading,),
-              SizedBox(height: 20,),
-              _buildContactInfo(),
-              SizedBox(height: 20,),
-              _buildCompanyDetail(),
-              SizedBox(height: 20,),
-              _buildCompanySize()
-            ],
+            child:SingleChildScrollView(
+              child:  FittedBox(
+                child: Column(
+                  children: [
+                    Text('Confirm your Information',style: TextStyles.pageHeading,),
+                    SizedBox(height: 20,),
+                    _buildContactInfo(),
+                    SizedBox(height: 20,),
+                    _buildCompanyDetail(),
+                    SizedBox(height: 20,),
+                    _buildCompanySize()
+                  ],
+                ),
+              ),
+            )
           ),
-        )
+        ],
       ),
     );
   }

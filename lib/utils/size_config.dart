@@ -13,6 +13,7 @@ class SizeConfig {
   static double widthMultiplier;
   static bool isPortrait = true;
   static bool isMobilePortrait = false;
+  static bool isTab = false;
 
 
   static getScreenWidth(context){
@@ -20,7 +21,18 @@ class SizeConfig {
   }
 
   static getScreenHeight(context){
+    print(isTab);
     return MediaQuery.of(context).size.height;
+  }
+
+  static setScreenType(context){
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    print(shortestSide);
+    if(shortestSide<600){
+      isTab = false;
+    }else{
+      isTab = true;
+    }
   }
 
   void init(BoxConstraints constraints, Orientation orientation) {
